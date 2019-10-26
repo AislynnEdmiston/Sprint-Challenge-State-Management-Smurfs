@@ -3,7 +3,7 @@ import {FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAILURE} from '..
 const initialState = {
     smurfs: [],
     error: '',
-    isFetching: false,
+    isFetching: false
 }
 
 export const reducer = (state = initialState  , action) => {
