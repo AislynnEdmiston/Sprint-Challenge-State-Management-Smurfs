@@ -1,23 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux';
-
+import Smurf from './Smurf'
 import { getSmurfs } from '../actions/action'
+import SmurfForm from './SmurfForm';
 
 const SmurfList = (props) => {
     const fetchSmurfs = event => {
         event.preventDefault();
-        props.getSmurfs
+        props.getSmurfs()
     }
 
     return (
         <div>
-            {props.smurfs.map(smurf => (
-                <div>
-                <h3>{smurf.name}</h3>
-                <p>age: {smurf.age}</p>
-                <p>height: {smurf.height}</p>
-                </div>
-            ))}
+            <SmurfForm />
+            <button onClick={fetchSmurfs}>Fetch Smurfs</button>
+            {props.smurfs.map(smurf => 
+                <Smurf  smurf={smurf}/>
+            )}
         </div>
     )
 }
